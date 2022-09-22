@@ -1,23 +1,24 @@
 .navbar{
+    width: 100vw;
+    color: var(--color-white-fixed);
     background-color: var(--color-grey-1);
-    padding: 1.75rem 0;
+    padding: 1.15rem 0;
+    position: fixed;
+    /* display: none; */
 }
 
 .navbar-items{
     display: flex;
     justify-content: space-between;
+    padding: 0px 4rem;
 }
 
-.navbar-links{
-    display: flex;
-    gap: 1rem;
-}
-
-.navbar-link{
+.navbar-option{
     background-color: transparent;
     color: var(--color-white-fixed);
     height: 2rem;
     padding: 0.5rem;
+    border: none;
     border-radius: var(--radius-1);
     text-decoration: none;
     font-size: 0.875rem;
@@ -25,6 +26,6 @@
     cursor: pointer;
 }
 
-.navbar-link:hover, .navbar-link.actived{
+.navbar-option:hover, .navbar-option.actived{
     background-color: var(--color-grey-2);
 }
