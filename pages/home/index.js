@@ -1,26 +1,228 @@
 /* Desenvolva a lógica da página aqui */
 
+
+function createCardProfile (idFather,id){
+    
+    let name =""
+    let profile =""
+    let img =""
+    
+    for (let i=0; i < users.length; i++){
+        if (users[i].id === id){
+            name = users[i].user
+            profile = users[i].stack
+            img = users[i].img
+        }
+    }
+
+    let divContainer = document.getElementById(idFather)
+    
+    let divCardProfile = document.createElement("div")
+    divContainer.appendChild(divCardProfile)
+    divCardProfile.classList="card-profile"
+
+        let divBoxInternalLeft = document.createElement("div")
+        divCardProfile.appendChild(divBoxInternalLeft)
+        divBoxInternalLeft.classList="card-profile-box-internal-left"
+
+            let imgUser = document.createElement("img")
+                imgUser.src= img
+                divBoxInternalLeft.appendChild(imgUser)
+
+            let divBoxInternalLeftInternal = document.createElement("div")
+            divBoxInternalLeft.appendChild(divBoxInternalLeftInternal)
+            divBoxInternalLeftInternal.classList="card-profile-box-internal-left-internal"
+
+                let h3NameProfile = document.createElement("h3")
+                    h3NameProfile.innerText= name
+                    divBoxInternalLeftInternal.appendChild(h3NameProfile)
+                    h3NameProfile.classList = "font-title2 txt-color-grey-1"
+
+                let pQualification = document.createElement("p")
+                    pQualification.innerText= profile
+                    divBoxInternalLeftInternal.appendChild(pQualification)
+                    pQualification.classList = "font-text2 txt-color-grey-2"
+
+        let divBoxInternalRight = document.createElement("div")
+            divCardProfile.appendChild(divBoxInternalRight)
+            divBoxInternalRight.classList = "card-profile-box-internal-right"
+
+            let buttonFollow = document.createElement("button")
+                buttonFollow.innerText="Seguir"
+                divBoxInternalRight.appendChild(buttonFollow)
+                buttonFollow.classList = "width-btn-small width-btn-smal border-slin-color-grey1 border-radius-2 bg-color-transparent font-text2 btn-outline-medium"
+
+}
+
+function createAssideFollowerSuggestion (){
+    let idcontainer = "container-card-profile"
+
+    for (let index=0; index < sugestUsers.length; index++){
+        createCardProfile(idcontainer,sugestUsers[index])
+    }
+}
+
+
+
+function createCardPost (idFather, idProfile, idPost , positionPostArray){
+
+
+    let divContainer = document.getElementById(idFather)
+    
+        let liCardPost = document.createElement("li")
+        divContainer.appendChild(liCardPost)
+        liCardPost.id="card-post"+idPost
+        liCardPost.classList = "card-post"
+
+            createCardProfile (liCardPost.id,idProfile)
+            liCardPost.children[0].children[1].remove()
+
+
+            let h2 = document.createElement("h2")
+            h2.innerText = posts[positionPostArray].title 
+            h2.classList = "font-title1 txt-color-grey-1"
+            liCardPost.appendChild(h2)
+
+            let p = document.createElement("p")
+            p.innerText = posts[positionPostArray].text.slice(0,150) + " ..."
+            p.classList = "font-text1 txt-color-grey-2"
+            liCardPost.appendChild(p)
+
+            let divContainerBtn = document.createElement("div")
+            liCardPost.appendChild(divContainerBtn)
+            divContainerBtn.classList ="card-post-container-buttons"
+
+                let btnOpenPost = document.createElement("button")
+                btnOpenPost.innerText= "Abrir Post"
+                btnOpenPost.classList = "width-btn-medium width-btn-medium font-text2 bg-color-grey-1 txt-color-white-fixed border-none border-radius-1 btn-grey1"
+                divContainerBtn.appendChild(btnOpenPost)
+                 btnOpenPost.setAttribute("data-control-modal",`modal-post${idPost}`)
+                // btnOpenPost.setAttribute("data-control-modal","modal-post")
+                btnOpenPost.value = idPost
+
+                let containerBtnInternal = document.createElement("div")
+                containerBtnInternal.classList = "card-post-container-buttons-internal"
+                divContainerBtn.appendChild(containerBtnInternal)
+
+                    let btnLike = document.createElement("button")
+                    btnLike.classList = "btn-like"
+                    containerBtnInternal.appendChild(btnLike)
+
+                        let imgLike = document.createElement("img")
+                        imgLike.src = "../../assets/img/heart.svg"
+                        imgLike.classList = "btn-like-img"
+                        btnLike.appendChild(imgLike)
+        
+                        let pContLikes = document.createElement("p")
+                        btnLike.appendChild(pContLikes)
+
+}
+
+function createListPosts (){
+    
+    let idcontainer = "list-posts"  
+
+    for (let index=0; index < posts.length; index++){
+        createCardPost(idcontainer,posts[index].user,posts[index].id_post,index)
+    }
+}
+
+
+function createModalPost (idProfile, idPost , positionPostArray){
+
+
+    let containerModal = document.querySelector(".modal-wrapper")
+    containerModal.id="modal-post"+idPost
+
+        let modal = document.createElement("div")
+        containerModal.appendChild(modal)
+        modal.classList = "modal"
+        modal.id = "modal"
+
+
+            let modalHeader = document.createElement("div")
+            modal.appendChild(modalHeader)
+            modalHeader.classList = "modal-header"
+            modalHeader.id = "modal-header"+idPost
+                
+                createCardProfile (modalHeader.id,idProfile)
+                modalHeader.children[0].children[1].remove()
+
+                let btnCloseModal = document.createElement("button")
+                btnCloseModal.innerText= "X"
+                btnCloseModal.classList = "btn-modal-close"
+                modalHeader.appendChild(btnCloseModal)
+                btnCloseModal.setAttribute("data-control-modal",containerModal.id)
+                btnCloseModal.value = idPost
+                btnCloseModal.id = "modal-close"
+
+            let modalBody = document.createElement("div")
+            modal.appendChild(modalBody)
+            modalBody.classList ="modal-body"     
+            
+                let h2 = document.createElement("h2")
+                h2.innerText = posts[positionPostArray].title 
+                h2.classList = "font-title1 txt-color-grey-1"
+                modalBody.appendChild(h2)
+
+                let p = document.createElement("p")
+                p.innerText = posts[positionPostArray].text
+                p.classList = "font-text1 txt-color-grey-2"
+                modalBody.appendChild(p)          
+
+}
+
+//createModalPost (idProfile, idPost , positionPostArray)
+ 
+createListPosts ()
+createAssideFollowerSuggestion()
+
+
+
+// =============================================================
 let controllersModal = document.querySelectorAll("[data-control-modal]")
+let idUserPost =0
+let idPost = 0
+let positionPostArray=0
 
 for(let index = 0; index < controllersModal.length; index++){
     controllersModal[index].addEventListener("click", ()=>{
         let modalId = controllersModal[index].getAttribute("data-control-modal")
-        document.getElementById(modalId).classList.toggle("show-modal")
+    
+            for (let i=0; i<posts.length; i++){
+                    if (posts[i].id_post===index+1){
+                        idUserPost=posts[i].user
+                        idPost = posts[i].id_post
+                        positionPostArray = i
+                    }
+            }
+            
+            createModalPost(idUserPost,idPost,positionPostArray)
+            document.getElementById(modalId).classList.toggle("show-modal")
+
+            let btnClose = document.querySelector("#modal-close")
+            btnClose.addEventListener ("click", function(){
+                document.getElementById(modalId).classList.toggle("show-modal")
+                document.getElementById("modal").remove()
+            })         
+          
     })
 }
 
-let controlButtonLike = document.querySelector(".btn-like")
-let controlButtonLikeImg = document.querySelector(".btn-like-img")
-let heartHover = false
-controlButtonLike.addEventListener("click", function(event){
+
+
+// let controlButtonLike = document.querySelector(".btn-like")
+// let controlButtonLikeImg = document.querySelector(".btn-like-img")
+// let heartHover = false
+// controlButtonLike.addEventListener("click", function(event){
     
-    if(heartHover){
-        controlButtonLikeImg.src="../../assets/img/heart.svg"
-        heartHover=false
-    }else{
-        controlButtonLikeImg.src="../../assets/img/heart-hover.svg"
-        heartHover=true
-    }
-})
+//     if(heartHover){
+//         controlButtonLikeImg.src="../../assets/img/heart.svg"
+//         heartHover=false
+//     }else{
+//         controlButtonLikeImg.src="../../assets/img/heart-hover.svg"
+//         heartHover=true
+//     }
+// })
 
-
+// =============================================================
