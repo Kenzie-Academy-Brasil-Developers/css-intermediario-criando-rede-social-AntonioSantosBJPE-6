@@ -19,11 +19,11 @@ function createCardProfile (idFather,id){
     
     let divCardProfile = document.createElement("div")
     divContainer.appendChild(divCardProfile)
-    divCardProfile.classList="card-profile"
+    divCardProfile.classList="card-profile flex"
 
         let divBoxInternalLeft = document.createElement("div")
         divCardProfile.appendChild(divBoxInternalLeft)
-        divBoxInternalLeft.classList="card-profile-box-internal-left"
+        divBoxInternalLeft.classList="card-profile-box-internal-left flex items-center"
 
             let imgUser = document.createElement("img")
                 imgUser.src= img
@@ -31,7 +31,7 @@ function createCardProfile (idFather,id){
 
             let divBoxInternalLeftInternal = document.createElement("div")
             divBoxInternalLeft.appendChild(divBoxInternalLeftInternal)
-            divBoxInternalLeftInternal.classList="card-profile-box-internal-left-internal"
+            divBoxInternalLeftInternal.classList="card-profile-box-internal-left-internal flex flex-col items-start"
 
                 let h3NameProfile = document.createElement("h3")
                     h3NameProfile.innerText= name
@@ -45,7 +45,7 @@ function createCardProfile (idFather,id){
 
         let divBoxInternalRight = document.createElement("div")
             divCardProfile.appendChild(divBoxInternalRight)
-            divBoxInternalRight.classList = "card-profile-box-internal-right"
+            divBoxInternalRight.classList = "card-profile-box-internal-right flex items-center justify-end"
 
             let buttonFollow = document.createElement("button")
                 buttonFollow.innerText="Seguir"
@@ -70,7 +70,7 @@ function createCardPost (idFather, idProfile, idPost , positionPostArray){
         let liCardPost = document.createElement("li")
         divContainer.appendChild(liCardPost)
         liCardPost.id="card-post"+idPost
-        liCardPost.classList = "card-post"
+        liCardPost.classList = "card-post flex flex-col"
 
             createCardProfile (liCardPost.id,idProfile)
             liCardPost.children[0].children[1].remove()
@@ -88,18 +88,17 @@ function createCardPost (idFather, idProfile, idPost , positionPostArray){
 
             let divContainerBtn = document.createElement("div")
             liCardPost.appendChild(divContainerBtn)
-            divContainerBtn.classList ="card-post-container-buttons"
+            divContainerBtn.classList ="card-post-container-buttons flex"
 
                 let btnOpenPost = document.createElement("button")
                 btnOpenPost.innerText= "Abrir Post"
                 btnOpenPost.classList = "width-btn-medium width-btn-medium font-text2 bg-color-grey-1 txt-color-white-fixed border-none border-radius-1 btn-grey1"
                 divContainerBtn.appendChild(btnOpenPost)
                  btnOpenPost.setAttribute("data-control-modal",`modal-post${idPost}`)
-                // btnOpenPost.setAttribute("data-control-modal","modal-post")
                 btnOpenPost.value = idPost
 
                 let containerBtnInternal = document.createElement("div")
-                containerBtnInternal.classList = "card-post-container-buttons-internal"
+                containerBtnInternal.classList = "card-post-container-buttons-internal flex"
                 divContainerBtn.appendChild(containerBtnInternal)
 
                     let btnLike = document.createElement("button")
@@ -141,7 +140,7 @@ function createModalPost (idProfile, idPost , positionPostArray){
 
             let modalHeader = document.createElement("div")
             modal.appendChild(modalHeader)
-            modalHeader.classList = "modal-header"
+            modalHeader.classList = "modal-header flex justify-between items-center"
             modalHeader.id = "modal-header"+idPost
                 
                 createCardProfile (modalHeader.id,idProfile)
@@ -157,7 +156,7 @@ function createModalPost (idProfile, idPost , positionPostArray){
 
             let modalBody = document.createElement("div")
             modal.appendChild(modalBody)
-            modalBody.classList ="modal-body"     
+            modalBody.classList ="modal-body flex flex-col"     
             
                 let h2 = document.createElement("h2")
                 h2.innerText = posts[positionPostArray].title 

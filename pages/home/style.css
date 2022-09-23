@@ -12,22 +12,11 @@
     width: 80%;
     height: 400px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
     gap: 22px;
 }
 
-
-.container-button-post{
-    display: flex;
-    justify-content: right;
-}
-
-
-
 .asside-follower-suggestion{
-    grid-area: box2;
-   
+    grid-area: box2; 
 }
 
 

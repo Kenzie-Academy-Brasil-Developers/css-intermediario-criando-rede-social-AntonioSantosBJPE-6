@@ -9,90 +9,95 @@
     <link rel="stylesheet" href="../../styles/fonts.css">
     <link rel="stylesheet" href="../../styles/colors.css">
     <link rel="stylesheet" href="../../styles/inputs.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
     <link rel="stylesheet" href="../../styles/cards.css">
     <link rel="stylesheet" href="../../styles/modals.css">
     <link rel="stylesheet" href="../../styles/navbar.css">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../styles/display.css">
     <link rel="stylesheet" href="/styles/globalStyles.css" />
 
     <title>TechPosters - Home</title>
   </head>
   <body>
     
-    <header>
+    <div class="container">
+      <header>
       
-      <nav class="navbar">
-       
-        <div class="navbar-items">
-          <h3>TechPosters</h3>
-          <a href="#"><button class="navbar-option">Sair</button></a>
-        </div>
-        
-      </nav>
-    
-    </header>
-
-    <main class="section-principal">
-      
-      
-      <section class="new-post" id="new-post">
-        
-        <div class="card-profile-box-internal-left">
-          <img src="../../assets/img/user3.svg" alt="">
-          <div class="card-profile-box-internal-left-internal">
-            <h3 class="font-title2 txt-color-grey-1">Carlos Lima</h3>
-            <p class="font-text2 txt-color-grey-2">UX e UI Designer</p>
+        <nav class="navbar">
+         
+          <div class="navbar-items font-text2 flex justify-between">
+            <h3>TechPosters</h3>
+            <a href="#"><button class="navbar-option font-text2 bg-color-transparent">Sair</button></a>
           </div>
-        </div>
-
-        <input type="text" name="" id="" class="input-all border-radius-1 font-text1" placeholder="Digitar título do post">
-
-        <textarea name="" id="" cols="30" rows="5" class="textarea-new-post border-radius-1 font-text1" placeholder="Digitar descrição do post"></textarea>
-
-       <div class="container-button-post">
-        <button class="width-btn-small width-btn-medium border-none border-radius-1 bg-color-primary txt-color-white-fixed font-text2 btn-primary">Postar</button>
-       </div>
-
-
-      </section>
-
-      <section class="asside-follower-suggestion">
-        
-        <div class="follower-suggestion">
-              
-          <div class="card-profile-title">
-            <h3 class="font-title2 txt-color-grey-1">Sugestões para você seguir</h3>
-          </div>
-
-          <div class="container-card-profile" id="container-card-profile">
-              <!-- Criado via DOM -->
-          </div>
-
-        </div>
-        
-      </section>
-
-      <section class="posts">
-        
-
-        <div class="card-post-title">
-          <h2 class="font-title1 txt-color-grey-1">Posts</h2>
-        </div>
-
-        <ul class="list-posts" id="list-posts">
-
-          <!-- Criado via DOM -->
+          
+        </nav>
       
-        </ul>
+      </header>
+  
+      <main class="section-principal">
+        
+        
+        <section class="new-post flex flex-col" id="new-post">
+          
+          <div class="card-profile-box-internal-left flex items-center">
+            <img src="../../assets/img/user3.svg" alt="">
+            <div class="card-profile-box-internal-left-internal flex flex-col items-start">
+              <h3 class="font-title2 txt-color-grey-1">Carlos Lima</h3>
+              <p class="font-text2 txt-color-grey-2">UX e UI Designer</p>
+            </div>
+          </div>
+  
+          <input type="text" name="" id="" class="input-all border-radius-1 font-text1" placeholder="Digitar título do post">
+  
+          <textarea name="" id="" cols="30" rows="5" class="textarea-new-post border-radius-1 font-text1" placeholder="Digitar descrição do post"></textarea>
+  
+         <div class="container-button-post flex justify-end">
+          <button class="width-btn-small width-btn-medium border-none border-radius-1 bg-color-primary txt-color-white-fixed font-text2 btn-primary">Postar</button>
+         </div>
+  
+  
+        </section>
+  
+        <section class="asside-follower-suggestion">
+          
+          <div class="follower-suggestion">
+                
+            <div class="card-profile-title">
+              <h3 class="font-title2 txt-color-grey-1">Sugestões para você seguir</h3>
+            </div>
+  
+            <div class="container-card-profile" id="container-card-profile">
+                <!-- Criado via DOM -->
+            </div>
+  
+          </div>
+          
+        </section>
+  
+        <section class="posts">
+          
+  
+          <div class="card-post-title">
+            <h2 class="font-title1 txt-color-grey-1">Posts</h2>
+          </div>
+  
+          <ul class="list-posts" id="list-posts">
+  
+            <!-- Criado via DOM -->
+        
+          </ul>
+  
+        </section>
+  
+     
+      </main>
+    </div>
+  
 
-      </section>
-
-   
-    </main>
-
-    <div class="modal-wrapper" >
-    
-  </div>
+    <div class="modal-wrapper  items-start justify-center" >
+      <!-- Criado via DOM -->
+    </div>
 
 
 

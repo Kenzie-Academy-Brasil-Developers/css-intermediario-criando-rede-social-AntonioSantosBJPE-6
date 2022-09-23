@@ -1,28 +1,23 @@
 .navbar{
-    width: 100vw;
+    width: 1200px;
+    max-width: 100%;
     color: var(--color-white-fixed);
     background-color: var(--color-grey-1);
-    padding: 1.15rem 0;
+    padding: 24px 0;
     position: fixed;
-    /* display: none; */
 }
 
 .navbar-items{
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 4rem;
+    padding: 0px 64px;
 }
 
 .navbar-option{
-    background-color: transparent;
     color: var(--color-white-fixed);
-    height: 2rem;
-    padding: 0.5rem;
+    height: 32px;
+    padding: 8px;
     border: none;
     border-radius: var(--radius-1);
     text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 400;
     cursor: pointer;
 }
 
