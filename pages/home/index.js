@@ -62,8 +62,6 @@ function createAssideFollowerSuggestion (){
     }
 }
 
-
-
 function createCardPost (idFather, idProfile, idPost , positionPostArray){
 
 
@@ -115,6 +113,8 @@ function createCardPost (idFather, idProfile, idPost , positionPostArray){
         
                         let pContLikes = document.createElement("p")
                         btnLike.appendChild(pContLikes)
+                        pContLikes.innerText = "0"
+                        pContLikes.classList = "font-text3 txt-color-grey-2 counter-like"
 
 }
 
@@ -126,7 +126,6 @@ function createListPosts (){
         createCardPost(idcontainer,posts[index].user,posts[index].id_post,index)
     }
 }
-
 
 function createModalPost (idProfile, idPost , positionPostArray){
 
@@ -172,57 +171,77 @@ function createModalPost (idProfile, idPost , positionPostArray){
 
 }
 
-//createModalPost (idProfile, idPost , positionPostArray)
- 
-createListPosts ()
-createAssideFollowerSuggestion()
-
-
-
-// =============================================================
-let controllersModal = document.querySelectorAll("[data-control-modal]")
-let idUserPost =0
-let idPost = 0
-let positionPostArray=0
-
-for(let index = 0; index < controllersModal.length; index++){
-    controllersModal[index].addEventListener("click", ()=>{
-        let modalId = controllersModal[index].getAttribute("data-control-modal")
+function createEventLikeDeslike () {
+    let controlButtonLike = document.querySelectorAll(".btn-like")
+    let controlButtonLikeImg = document.querySelectorAll(".btn-like-img")
+    let likes = document.querySelectorAll(".counter-like")
     
-            for (let i=0; i<posts.length; i++){
-                    if (posts[i].id_post===index+1){
-                        idUserPost=posts[i].user
-                        idPost = posts[i].id_post
-                        positionPostArray = i
-                    }
-            }
+     let heartHover = false
+    
+     for (let i=0; i < controlButtonLike.length; i++){
+        let heartHover = false
+        let counterLike = 0
+        controlButtonLike[i].addEventListener("click", function(){
             
-            createModalPost(idUserPost,idPost,positionPostArray)
-            document.getElementById(modalId).classList.toggle("show-modal")
+             if(heartHover){
+                    controlButtonLikeImg[i].src="../../assets/img/heart.svg"
+                    heartHover=false
+                    counterLike--
+                    likes[i].innerText = counterLike
+                }else{
+                    controlButtonLikeImg[i].src="../../assets/img/heart-hover.svg"
+                    heartHover=true
+                    counterLike++
+                    likes[i].innerText = counterLike
+                }
+         })
+     }
+}
 
-            let btnClose = document.querySelector("#modal-close")
-            btnClose.addEventListener ("click", function(){
+
+function createEventOpenCloseModal (){
+    let controllersModal = document.querySelectorAll("[data-control-modal]")
+    let idUserPost =0
+    let idPost = 0
+    let positionPostArray=0
+    
+    for(let index = 0; index < controllersModal.length; index++){
+        controllersModal[index].addEventListener("click", ()=>{
+            let modalId = controllersModal[index].getAttribute("data-control-modal")
+        
+                for (let i=0; i<posts.length; i++){
+                        if (posts[i].id_post===index+1){
+                            idUserPost=posts[i].user
+                            idPost = posts[i].id_post
+                            positionPostArray = i
+                        }
+                }
+                
+                createModalPost(idUserPost,idPost,positionPostArray)
                 document.getElementById(modalId).classList.toggle("show-modal")
-                document.getElementById("modal").remove()
-            })         
-          
-    })
+    
+                let btnClose = document.querySelector("#modal-close")
+                btnClose.addEventListener ("click", function(){
+                    document.getElementById(modalId).classList.toggle("show-modal")
+                    document.getElementById("modal").remove()
+                })         
+              
+        })
+    }
 }
 
 
 
-// let controlButtonLike = document.querySelector(".btn-like")
-// let controlButtonLikeImg = document.querySelector(".btn-like-img")
-// let heartHover = false
-// controlButtonLike.addEventListener("click", function(event){
-    
-//     if(heartHover){
-//         controlButtonLikeImg.src="../../assets/img/heart.svg"
-//         heartHover=false
-//     }else{
-//         controlButtonLikeImg.src="../../assets/img/heart-hover.svg"
-//         heartHover=true
-//     }
-// })
+ 
+createListPosts ()
+createAssideFollowerSuggestion()
+createEventOpenCloseModal ()
+createEventLikeDeslike ()
+
+
 
 // =============================================================
+
+
+
+
