@@ -106,7 +106,7 @@ function createCardPost (idFather, idProfile, idPost , positionPostArray){
                     containerBtnInternal.appendChild(btnLike)
 
                         let imgLike = document.createElement("img")
-                        imgLike.src = "../../assets/img/heart.svg"
+                        imgLike.src = "assets/img/heart.svg"
                         imgLike.classList = "btn-like-img"
                         btnLike.appendChild(imgLike)
         
@@ -183,12 +183,12 @@ function createEventLikeDeslike () {
         controlButtonLike[i].addEventListener("click", function(){
             
              if(heartHover){
-                    controlButtonLikeImg[i].src="../../assets/img/heart.svg"
+                    controlButtonLikeImg[i].src="assets/img/heart.svg"
                     heartHover=false
                     counterLike--
                     likes[i].innerText = counterLike
                 }else{
-                    controlButtonLikeImg[i].src="../../assets/img/heart-hover.svg"
+                    controlButtonLikeImg[i].src="assets/img/heart-hover.svg"
                     heartHover=true
                     counterLike++
                     likes[i].innerText = counterLike
@@ -228,8 +228,6 @@ function createEventOpenCloseModal (){
         })
     }
 }
-
-
 
  
 createListPosts ()
