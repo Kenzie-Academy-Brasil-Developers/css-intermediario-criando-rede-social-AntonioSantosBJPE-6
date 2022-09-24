@@ -50,7 +50,7 @@ function createCardProfile (idFather,id){
             let buttonFollow = document.createElement("button")
                 buttonFollow.innerText="Seguir"
                 divBoxInternalRight.appendChild(buttonFollow)
-                buttonFollow.classList = "width-btn-small width-btn-smal border-slin-color-grey1 border-radius-2 bg-color-transparent font-text2 btn-outline-medium"
+                buttonFollow.classList = "width-btn-small height-btn-small border-slin-color-grey1 border-radius-2 bg-color-transparent font-text2 btn-outline-medium"
 
 }
 
@@ -92,7 +92,7 @@ function createCardPost (idFather, idProfile, idPost , positionPostArray){
 
                 let btnOpenPost = document.createElement("button")
                 btnOpenPost.innerText= "Abrir Post"
-                btnOpenPost.classList = "width-btn-medium width-btn-medium font-text2 bg-color-grey-1 txt-color-white-fixed border-none border-radius-1 btn-grey1"
+                btnOpenPost.classList = "width-btn-medium height-btn-medium font-text2 bg-color-grey-1 txt-color-white-fixed border-none border-radius-1 btn-grey1"
                 divContainerBtn.appendChild(btnOpenPost)
                  btnOpenPost.setAttribute("data-control-modal",`modal-post${idPost}`)
                 btnOpenPost.value = idPost
