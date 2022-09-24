@@ -1,7 +1,9 @@
 .btn-primary:hover{
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
+    color: var(--color-white-fixed);
     cursor: pointer;
 }
+
 
 .btn-outline-medium:hover{
     background-color: #EDF2FF;
