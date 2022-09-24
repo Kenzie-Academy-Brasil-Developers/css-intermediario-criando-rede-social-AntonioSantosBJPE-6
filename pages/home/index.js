@@ -50,7 +50,7 @@ function createCardProfile (idFather,id){
             let buttonFollow = document.createElement("button")
                 buttonFollow.innerText="Seguir"
                 divBoxInternalRight.appendChild(buttonFollow)
-                buttonFollow.classList = "width-btn-small height-btn-small border-slin-color-grey1 border-radius-2 bg-color-transparent font-text2 btn-outline-medium"
+                buttonFollow.classList = "width-btn-small height-btn-small border-slin-color-grey1 border-radius-2 bg-color-transparent font-text2 btn-outline-medium btn-follower"
 
 }
 
@@ -230,11 +230,49 @@ function createEventOpenCloseModal (){
 }
 
  
+function createEventNewfollower (){
+
+    let btns = document.querySelectorAll(".btn-follower")
+    console.log (btns)
+
+    for (let i=0; i<btns.length; i++){
+       let click = false
+       btns[i].addEventListener ("click", function(){
+            
+        if (click){
+            btns[i].innerText = "Seguir"
+            btns[i].classList.toggle("bg-color-primary")
+            btns[i].classList.toggle("txt-color-white-fixed")
+            btns[i].classList.toggle("width-btn-medium")
+            btns[i].classList.toggle("border-none1")
+            btns[i].classList.toggle("btn-outline-medium")
+            btns[i].classList.toggle("btn-follow")
+            click=false
+        } else {
+            btns[i].innerText = "Seguindo"
+            btns[i].classList.toggle("bg-color-primary")
+            btns[i].classList.toggle("txt-color-white-fixed")
+            btns[i].classList.toggle("width-btn-medium")
+            btns[i].classList.toggle("border-none1")
+            btns[i].classList.toggle("btn-outline-medium")
+            btns[i].classList.toggle("btn-follow")
+            click=true
+        }
+          
+       })
+       
+    }
+
+     
+        
+}
+
+
 createListPosts ()
 createAssideFollowerSuggestion()
 createEventOpenCloseModal ()
 createEventLikeDeslike ()
-
+createEventNewfollower ()
 
 
 // =============================================================
