@@ -1,15 +1,18 @@
 .section-principal{
     padding-top: 100px;
     display: grid;
-    grid-template-columns: 65% 35% ;
+    grid-template-columns: 60% 35% ;
     grid-template-areas: 
     "box1 box2 "
     "box3 box2 ";
+    padding-left: 5%;
+    padding-right: 5%;
+    grid-column-gap:5%
 }
 
 .new-post{
     grid-area: box1;
-    width: 80%;
+    width: 100%;
     height: 400px;
     margin: 0 auto;
     gap: 22px;
@@ -21,7 +24,7 @@
 
 
 .follower-suggestion{
-    width: 90%;
+    width: 100%;
     position: sticky;
     top: 100px;
     margin: 0 auto;
@@ -38,11 +41,11 @@
 
 .posts{
     grid-area: box3;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 
 .list-posts{
@@ -66,7 +69,7 @@
 
             .follower-suggestion{
                 margin: none;
-                width: 80%;
+                width: 100%;
                 height: 200px;
                 position: static;
             }    

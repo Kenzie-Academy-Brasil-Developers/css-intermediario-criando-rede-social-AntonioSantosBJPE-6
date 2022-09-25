@@ -1,14 +1,15 @@
 .navbar{
-    width: 1200px;
-    max-width: 100%;
+    width: 100%;
     color: var(--color-white-fixed);
     background-color: var(--color-grey-1);
     padding: 24px 0;
     position: fixed;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .navbar-items{
-    padding: 0px 64px;
+    /* padding: 0px 64px; */
 }
 
 .navbar-option{

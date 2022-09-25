@@ -78,12 +78,12 @@ function createCardPost (idFather, idProfile, idPost , positionPostArray){
 
             let h2 = document.createElement("h2")
             h2.innerText = posts[positionPostArray].title 
-            h2.classList = "font-title1 txt-color-grey-1"
+            h2.classList = "font-title1 txt-color-grey-1 text-align-justify"
             liCardPost.appendChild(h2)
 
             let p = document.createElement("p")
             p.innerText = posts[positionPostArray].text.slice(0,150) + " ..."
-            p.classList = "font-text1 txt-color-grey-2"
+            p.classList = "font-text1 txt-color-grey-2 text-align-justify"
             liCardPost.appendChild(p)
 
             let divContainerBtn = document.createElement("div")
@@ -160,12 +160,12 @@ function createModalPost (idProfile, idPost , positionPostArray){
             
                 let h2 = document.createElement("h2")
                 h2.innerText = posts[positionPostArray].title 
-                h2.classList = "font-title1 txt-color-grey-1"
+                h2.classList = "font-title1 txt-color-grey-1 text-align-justify"
                 modalBody.appendChild(h2)
 
                 let p = document.createElement("p")
-                p.innerText = posts[positionPostArray].text
-                p.classList = "font-text1 txt-color-grey-2"
+                p.innerHTML = posts[positionPostArray].text
+                p.classList = "font-text1 txt-color-grey-2 text-align-justify"
                 modalBody.appendChild(p)          
 
 }
