@@ -233,7 +233,6 @@ function createEventOpenCloseModal (){
 function createEventNewfollower (){
 
     let btns = document.querySelectorAll(".btn-follower")
-    console.log (btns)
 
     for (let i=0; i<btns.length; i++){
        let click = false
@@ -268,12 +267,56 @@ function createEventNewfollower (){
 }
 
 
-createListPosts ()
-createAssideFollowerSuggestion()
-createEventOpenCloseModal ()
-createEventLikeDeslike ()
-createEventNewfollower ()
+function createEventNewPost (){
+    
+    let btnNewPost = document.getElementById("btn-new-post")
+    
+    btnNewPost.addEventListener("click", function(){
+        newPost()
+    })
 
+}
+
+function newPost(){
+    let userConnected = document.getElementById("user-connected")
+    let userStack = document.getElementById("user-stack")
+    let titlePost = document.getElementById("title-new-post")
+    let textPost = document.getElementById("text-new-post")
+
+    
+
+    if (titlePost.value.trim()==="" || textPost.value.trim()===""){
+        alert("Não é aceito um dos campos vazios")
+    }else{
+     
+        for (let index=0; index<posts.length; index++){
+            posts[index].id_post++
+        }
+
+        posts.unshift({id_post:1,user:3,title:titlePost.value.trim(),text:textPost.value.trim()})
+        titlePost.value = ""
+        textPost.value = ""
+
+        let ul = document.querySelectorAll(".card-post")
+        
+            for (let index=0; index<ul.length; index++){
+                ul[index].remove()
+            }
+       
+        createListPosts ()
+        createEventOpenCloseModal ()
+        createEventLikeDeslike ()
+    }
+
+}
+
+
+createListPosts()
+createAssideFollowerSuggestion()
+createEventOpenCloseModal()
+createEventLikeDeslike()
+createEventNewfollower()
+createEventNewPost()
 
 // =============================================================
 
