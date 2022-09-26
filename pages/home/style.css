@@ -48,6 +48,15 @@
     gap: 20px;
 }
 
+
+.posts-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+
 .list-posts{
     display: flex;
     flex-direction: column;

@@ -82,8 +82,8 @@ function createCardPost (idFather, idProfile, idPost , positionPostArray){
             liCardPost.appendChild(h2)
 
             let p = document.createElement("p")
-            p.innerText = posts[positionPostArray].text.slice(0,150) + " ..."
-            p.classList = "font-text1 txt-color-grey-2 text-align-justify"
+            p.innerText = posts[positionPostArray].text
+            p.classList = "font-text1 txt-color-grey-2 text-align-justify posts-text"
             liCardPost.appendChild(p)
 
             let divContainerBtn = document.createElement("div")
